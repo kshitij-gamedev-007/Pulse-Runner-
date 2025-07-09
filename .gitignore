@@ -1,0 +1,43 @@
+# =============== #
+# Unity Generated #
+# =============== #
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+UserSettings/
+.vscode/
+
+# =============== #
+# VS/IDE Files    #
+# =============== #
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.pidb.meta
+sysinfo.txt
+
+# =============== #
+# OS Generated    #
+# =============== #
+.DS_Store
+Thumbs.db
+
+# =============== #
+# Unity Asset Store Packages (optional) #
+# =============== #
+*.unitypackage
