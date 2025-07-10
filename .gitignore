@@ -1,6 +1,6 @@
-# =============== #
-# Unity Generated #
-# =============== #
+# ===================== #
+# Unity Generated Files #
+# ===================== #
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
@@ -9,11 +9,17 @@
 [Ll]ogs/
 [Mm]emoryCaptures/
 UserSettings/
-.vscode/
+ProjectSettings/EditorBuildSettings.asset
 
-# =============== #
-# VS/IDE Files    #
-# =============== #
+# ===================== #
+# System Files          #
+# ===================== #
+.DS_Store
+Thumbs.db
+
+# ===================== #
+# Visual Studio / Rider #
+# ===================== #
 *.csproj
 *.unityproj
 *.sln
@@ -28,16 +34,20 @@ UserSettings/
 *.mdb
 *.opendb
 *.VC.db
-*.pidb.meta
-sysinfo.txt
+.vscode/
+.idea/
 
-# =============== #
-# OS Generated    #
-# =============== #
-.DS_Store
-Thumbs.db
-
-# =============== #
-# Unity Asset Store Packages (optional) #
-# =============== #
+# ===================== #
+# Unity Asset Packages  #
+# ===================== #
 *.unitypackage
+
+# ===================== #
+# Backup & Temp         #
+# ===================== #
+*.bak
+*.tmp
+*.old
+
+# Optional: Ignore readme or license if not needed in repo
+# LICENSE
