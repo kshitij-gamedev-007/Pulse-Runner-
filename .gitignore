@@ -48,6 +48,8 @@ Thumbs.db
 *.bak
 *.tmp
 *.old
+*.prefab
+*.unity
 
 # Optional: Ignore readme or license if not needed in repo
 # LICENSE
