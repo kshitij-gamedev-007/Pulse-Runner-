@@ -615,6 +615,7 @@ MonoBehaviour:
   ChunkPrefab: {fileID: 3256609347587135771, guid: a5ca8e975bef54c4289585d4a2169700, type: 3}
   chunkAmount: 12
   chunkPrefabs: {fileID: 1605382479}
+  chunkSpeed: 10
 --- !u!4 &2079059728
 Transform:
   m_ObjectHideFlags: 0
