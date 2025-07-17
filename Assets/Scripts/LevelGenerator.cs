@@ -48,7 +48,6 @@ public class LevelGenerator : MonoBehaviour
         {
             currentPosZ = chunks[chunks.Count - 1].transform.position.z + chunkLength;
         }
-
         return currentPosZ;
     }
     void MoveChunk()
