@@ -1,7 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-
 public class Chunk : MonoBehaviour
 {
     [SerializeField] GameObject fencePrefab;
@@ -31,6 +29,13 @@ public class Chunk : MonoBehaviour
             Instantiate(fencePrefab, spawnPosition, Quaternion.identity, this.transform);
         }
     }
+    int SelectLane()
+    {
+        int randomLaneIndex = Random.Range(0, availableLanes.Count);
+        int selectedLane = availableLanes[randomLaneIndex];
+        availableLanes.RemoveAt(randomLaneIndex);
+        return selectedLane;
+    }
 
     void SpawnApple(){
         if (Random.value > appleSpawnChance || availableLanes.Count <= 0 ) return;
@@ -50,13 +55,6 @@ public class Chunk : MonoBehaviour
             Vector3 spawnPosition = new Vector3(lanes[selectedLane], transform.position.y, spawnPosZ);
             Instantiate(coinPrefab, spawnPosition, Quaternion.identity, this.transform);
         }
-    }
-    int SelectLane()
-    {
-        int randomLaneIndex = Random.Range(0, availableLanes.Count);
-        int selectedLane = availableLanes[randomLaneIndex];
-        availableLanes.RemoveAt(randomLaneIndex);
-        return selectedLane;
     }
 
 }
