@@ -1,18 +1,25 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 public class Chunk : MonoBehaviour
 {
     [SerializeField] GameObject fencePrefab;
     [SerializeField] GameObject applePrefab;
-    [SerializeField] GameObject coinPrefab; 
+    [SerializeField] GameObject coinPrefab;
     [SerializeField] float[] lanes = { -2.32f, 0f, 2.31f };
     [SerializeField] float appleSpawnChance = .3f;
     [SerializeField] float coinSpawnChance = .5f;
-    [SerializeField] float coinSeperationLength = 2f; 
-    List<int> availableLanes = new List<int> {0,1,2};
+    [SerializeField] float coinSeperationLength = 2f;
+    [SerializeField] float relaxTime = 5f;
+    List<int> availableLanes = new List<int> { 0, 1, 2 };
 
     void Start()
     {
+        StartCoroutine(RelaxTime());
+    }
+    IEnumerator RelaxTime()
+    {
+        yield return new WaitForSeconds(relaxTime);
         SpawnFences();
         SpawnApple();
         SpawnCoins();
@@ -20,7 +27,7 @@ public class Chunk : MonoBehaviour
 
     void SpawnFences()
     {
-        int fenceToSpawn = Random.Range (0,lanes.Length);
+        int fenceToSpawn = Random.Range(0, lanes.Length);
         for (int i = 0; i < fenceToSpawn; i++)
         {
             if (availableLanes.Count <= 0) break;
@@ -37,11 +44,12 @@ public class Chunk : MonoBehaviour
         return selectedLane;
     }
 
-    void SpawnApple(){
-        if (Random.value > appleSpawnChance || availableLanes.Count <= 0 ) return;
-            int selectedLane = SelectLane();    
-            Vector3 spawnPosition = new(lanes[selectedLane], transform.position.y, transform.position.z);
-            Instantiate(applePrefab, spawnPosition, Quaternion.identity, this.transform);
+    void SpawnApple()
+    {
+        if (Random.value > appleSpawnChance || availableLanes.Count <= 0) return;
+        int selectedLane = SelectLane();
+        Vector3 spawnPosition = new(lanes[selectedLane], transform.position.y, transform.position.z);
+        Instantiate(applePrefab, spawnPosition, Quaternion.identity, this.transform);
     }
     void SpawnCoins()
     {
@@ -56,5 +64,6 @@ public class Chunk : MonoBehaviour
             Instantiate(coinPrefab, spawnPosition, Quaternion.identity, this.transform);
         }
     }
+    
 
 }

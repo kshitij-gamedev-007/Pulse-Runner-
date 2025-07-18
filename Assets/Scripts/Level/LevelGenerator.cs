@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
@@ -8,6 +9,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] Transform chunkPrefabs;
     List<GameObject> chunks = new List<GameObject>();
     [SerializeField] float chunkSpeed = 2f;
+    float minMoveSpeed = 2f; 
     float chunkLength = 10f;
 
     void Start()
@@ -18,7 +20,16 @@ public class LevelGenerator : MonoBehaviour
     void Update()
     {
         MoveChunk();
-        
+    }
+    public void ChangeMovementSpeed(float speed)
+    {
+        chunkSpeed += speed;
+
+        if (chunkSpeed < minMoveSpeed)
+        {
+            chunkSpeed = minMoveSpeed;
+        }
+        Physics.gravity = new Vector3(Physics.gravity.x, Physics.gravity.y, Physics.gravity.z - chunkSpeed);
     }
     void SpawnStartingChunk()
     {

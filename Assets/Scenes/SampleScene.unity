@@ -502,6 +502,11 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!95 &575746048 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1014860696115371117, guid: dcbc89efbe5bd174b99e07c76bd0b6bf, type: 3}
+  m_PrefabInstance: {fileID: 983569007}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &710157055
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,8 +538,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 803305679}
   m_Father: {fileID: 0}
@@ -639,6 +644,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb640b06009e2d4cadcf9eaf726baa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 575746048}
+  collisionCooldown: 1
+  adjustMovementSpeed: -2
 --- !u!136 &710157061
 CapsuleCollider:
   m_ObjectHideFlags: 0
