@@ -4,7 +4,7 @@ public class PlayerCollisionHandler : MonoBehaviour
 {
     [SerializeField] Animator animator;
     [SerializeField] float collisionCooldown = 1f;
-    [SerializeField] float adjustMovementSpeed = -2f;
+    [SerializeField] float adjustMovementSpeed = -1f;
     const string hitString = "Hit";
     float cooldownTimer = 0f;
     LevelGenerator levelGenerator;

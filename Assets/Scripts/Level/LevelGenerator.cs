@@ -7,8 +7,10 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] GameObject ChunkPrefab;
     [SerializeField] int chunkAmount = 12;
     [SerializeField] Transform chunkPrefabs;
-    List<GameObject> chunks = new List<GameObject>();
     [SerializeField] float chunkSpeed = 2f;
+    [SerializeField] Animator animator;
+    [SerializeField] CameraController cameraController; 
+    List<GameObject> chunks = new List<GameObject>();
     float minMoveSpeed = 2f; 
     float chunkLength = 10f;
 
@@ -29,7 +31,7 @@ public class LevelGenerator : MonoBehaviour
         {
             chunkSpeed = minMoveSpeed;
         }
-        Physics.gravity = new Vector3(Physics.gravity.x, Physics.gravity.y, Physics.gravity.z - chunkSpeed);
+        cameraController.ChangeCameraFov(speed);
     }
     void SpawnStartingChunk()
     {
