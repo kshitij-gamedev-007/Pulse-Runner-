@@ -993,6 +993,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78840547f2d4b0a49ac3da97c7b9c9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minFov: 35
+  maxFov: 80
+  zoomDuration: 1
+  zoomSpeedModifier: 5
 --- !u!1 &1605382478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,6 +1062,7 @@ MonoBehaviour:
   chunkPrefabs: {fileID: 1605382479}
   chunkSpeed: 10
   animator: {fileID: 575746048}
+  cameraController: {fileID: 1548521881}
 --- !u!4 &2079059728
 Transform:
   m_ObjectHideFlags: 0
