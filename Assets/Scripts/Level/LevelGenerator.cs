@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] Animator animator;
+    [SerializeField] CameraController cameraController; 
     [SerializeField] GameObject ChunkPrefab;
+    List<GameObject> chunks = new List<GameObject>();
+
+    [Header("Settings")]
     [SerializeField] int chunkAmount = 12;
     [SerializeField] Transform chunkPrefabs;
     [SerializeField] float chunkSpeed = 2f;
-    [SerializeField] Animator animator;
-    [SerializeField] CameraController cameraController; 
-    List<GameObject> chunks = new List<GameObject>();
     float minMoveSpeed = 2f; 
     float chunkLength = 10f;
 

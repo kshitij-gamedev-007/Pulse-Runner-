@@ -1,9 +1,16 @@
+using TMPro;
 using UnityEngine;
 
 public class Coin : PickupHandler
 {
+    ScoreManager scoreManager;
+
+    void Start()
+    {
+        scoreManager = FindAnyObjectByType<ScoreManager>();
+    }
     protected override void OnPickUp()
     {
-        Debug.Log("Add 1000 to coins");
+        scoreManager.IncrementScore(1);
     }
 }
