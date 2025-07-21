@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Unity.Android.Gradle.Manifest;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class LevelGenerator : MonoBehaviour
 {
@@ -9,6 +9,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] CameraController cameraController; 
     [SerializeField] GameObject ChunkPrefab;
     List<GameObject> chunks = new List<GameObject>();
+    [SerializeField] ScoreManager scoreManager;
 
     [Header("Settings")]
     [SerializeField] int chunkAmount = 12;
@@ -48,8 +49,11 @@ public class LevelGenerator : MonoBehaviour
     {
         float currentPosZ = CalculateSpawnPosZ();
         Vector3 chunkPosZ = new Vector3(transform.position.x, transform.position.y, currentPosZ);
-        GameObject newchunk = Instantiate(ChunkPrefab, chunkPosZ, Quaternion.identity, chunkPrefabs);
-        chunks.Add(newchunk);
+        GameObject newchunkGO = Instantiate(ChunkPrefab, chunkPosZ, Quaternion.identity, chunkPrefabs);
+
+        chunks.Add(newchunkGO);
+        Chunk newChunk = newchunkGO.GetComponent<Chunk>();
+        newChunk.Init(this, scoreManager);
     }
 
     float CalculateSpawnPosZ()

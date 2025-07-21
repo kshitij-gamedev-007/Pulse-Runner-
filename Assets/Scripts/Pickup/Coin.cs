@@ -1,13 +1,14 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Coin : PickupHandler
 {
     ScoreManager scoreManager;
 
-    void Start()
+    public void Init(ScoreManager scoreManager)
     {
-        scoreManager = FindAnyObjectByType<ScoreManager>();
+        this.scoreManager = scoreManager;
     }
     protected override void OnPickUp()
     {
