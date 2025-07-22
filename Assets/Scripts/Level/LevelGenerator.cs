@@ -7,17 +7,19 @@ public class LevelGenerator : MonoBehaviour
     [Header("References")]
     [SerializeField] Animator animator;
     [SerializeField] CameraController cameraController; 
-    [SerializeField] GameObject ChunkPrefab;
+    [SerializeField] GameObject[] ChunkPrefabs;
+    [SerializeField] GameObject checkpointChunk;
     List<GameObject> chunks = new List<GameObject>();
     [SerializeField] ScoreManager scoreManager;
 
     [Header("Settings")]
+    [SerializeField] int checkpointChunkInterval = 8;
     [SerializeField] int chunkAmount = 12;
     [SerializeField] Transform chunkPrefabs;
     [SerializeField] float chunkSpeed = 2f;
     float minMoveSpeed = 2f; 
     float chunkLength = 10f;
-
+    int chunkSpawned = 0; 
     void Start()
     {
         SpawnStartingChunk();
@@ -47,13 +49,24 @@ public class LevelGenerator : MonoBehaviour
 
     void SpawnChunks()
     {
+        GameObject ChunkToSpawn;
         float currentPosZ = CalculateSpawnPosZ();
         Vector3 chunkPosZ = new Vector3(transform.position.x, transform.position.y, currentPosZ);
-        GameObject newchunkGO = Instantiate(ChunkPrefab, chunkPosZ, Quaternion.identity, chunkPrefabs);
+        if (chunkSpawned % checkpointChunkInterval == 0)
+        {
+            ChunkToSpawn = checkpointChunk;
+        }
+        else
+        {
+            ChunkToSpawn = ChunkPrefabs[Random.Range(0, ChunkPrefabs.Length)];  
+        }
+        GameObject newchunkGO = Instantiate(ChunkToSpawn, chunkPosZ, Quaternion.identity, chunkPrefabs);
 
         chunks.Add(newchunkGO);
         Chunk newChunk = newchunkGO.GetComponent<Chunk>();
         newChunk.Init(this, scoreManager);
+
+        chunkSpawned++;
     }
 
     float CalculateSpawnPosZ()
