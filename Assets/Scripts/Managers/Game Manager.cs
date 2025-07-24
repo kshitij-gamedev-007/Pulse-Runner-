@@ -25,6 +25,10 @@ public class GameManager : MonoBehaviour
             PlayerGameOver();
         }
     }
+    public void IncreaseTimer(float timeToIncrease)
+    {
+        timeLeft += timeToIncrease;
+    }
     void PlayerGameOver()
     {
         isGameOver = true;

@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] float timeIncrement = 5f;
+    GameManager gameManager;
     void Start()
     {
-        
+        gameManager = FindFirstObjectByType<GameManager>();
     }
-
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.CompareTag("Player"))
+        {
+            gameManager.IncreaseTimer(timeIncrement);
+        }
     }
 }
